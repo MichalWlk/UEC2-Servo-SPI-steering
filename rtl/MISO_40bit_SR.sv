@@ -28,11 +28,16 @@ module SPI_Ctrl(
     output [39:0] DOUT
     );
     
-reg SS_Ctrl;
+reg SS_Ctrl; //WAZNE: zakladam, ze podanie ponownie 0 na SS (active low) rozpoczyna przesylanie paczki 5 bajtow od poczatku (a nie SCLK - jesli tak to konieczna modyfikacja)
 reg [39:0] SR;
 reg [39:0] SR_temp;
 reg [5:0] BitCntr;
+reg [1:0] State;
     
+parameter   Init = 2'b00,
+            Receive = 2'b01,
+            Done = 2'b11;
+
     always @(posedge clk)
     begin
         if(rst)
@@ -40,20 +45,36 @@ reg [5:0] BitCntr;
             SS_Ctrl <= 1'b1;
             SR <= 0;
             SR_temp <= 0; 
-            BitCntr <= 0;         
+            BitCntr <= 0;
+            State <= Init;
         end
         else begin
-            SS_Ctrl <= 1'b0;        //trzeba ustawic 0 przed przesunieciem SR -> maszyna stanow !!!
-            SR_temp <= {SR_temp[38:0], MISO};
-            BitCntr <= BitCntr + 1;
-            if(BitCntr == 6'd40)
-            begin
-                BitCntr <= 0;
-                SR <= SR_temp;                
-            end else
-            begin
-                SR <= SR;
-            end
+            case (State)
+                Init: begin
+                    SS_Ctrl <= 0;
+                    SR <= SR;
+                    State <= Receive;
+                end
+
+                Receive: begin
+                    SR_temp <= {SR_temp[38:0], MISO};
+                    BitCntr <= BitCntr + 1;
+                    SR <= SR;
+                    if(BitCntr == 6'd40) begin
+                        SS_Ctrl <= 1;
+                        State <= Done;               
+                    end else begin
+                        SS_Ctrl <= 0;
+                        State <= Receive;
+                    end
+                end
+                
+                Done: begin
+                    SR <= SR_temp;
+                    BitCntr <= 0;
+                    State <= Init;
+                end
+            endcase
         end
     end
     
