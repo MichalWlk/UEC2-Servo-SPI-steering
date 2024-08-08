@@ -43,7 +43,7 @@ reg [5:0] BitCntr;
             BitCntr <= 0;         
         end
         else begin
-            SS_Ctrl <= 1'b0;        //trzeba ustawic 0 przed przesunieciem SR -> maszyna stanow
+            SS_Ctrl <= 1'b0;        //trzeba ustawic 0 przed przesunieciem SR -> maszyna stanow !!!
             SR_temp <= {SR_temp[38:0], MISO};
             BitCntr <= BitCntr + 1;
             if(BitCntr == 6'd40)
@@ -59,5 +59,7 @@ reg [5:0] BitCntr;
     
     
     assign DOUT = SR;
+
+    assign SS = SS_Ctrl;
     
 endmodule

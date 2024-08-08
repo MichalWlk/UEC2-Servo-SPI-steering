@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Michal Walek
 // 
-// Create Date: 08/02/2024 10:03:50 PM
+// Create Date: 08/02/2024 10:03:50 PM          
 // Design Name: 
 // Module Name: JSTK2_SPI_interface
 // Project Name: 
-// Target Devices: 
+// Target Devices: Basys3
 // Tool Versions: 
-// Description: 
+// Description: pmod JSTK2 communication top module
 // 
 // Dependencies: 
 // 
@@ -25,9 +25,24 @@ module JSTK2_SPI_interface(
     input rst,
     input MISO,
     output SS,
-    input SCLK
+    output SCLK
     );
     
+    wire [39:0] xy_values;
+    wire clk_66kHz;
+
+    MISO_40bit_SR MISO_40bit_SR(
+    .clk(clk_66kHz),
+    .rst(rst),
+    .MISO(MISO),
+    .SS(SS),
+    .DOUT(xy_values)
+    );
     
-    
+    Clk_Div Clk_Div(
+    .clk(clk),
+    .rst(rst),
+    .clk_div_out(clk_66kHz)
+    );
+
 endmodule
