@@ -31,7 +31,7 @@ module JSTK2_SPI_interface(
     wire [39:0] xy_values;
     wire clk_66kHz;
 
-    MISO_40bit_SR MISO_40bit_SR(
+    SPI_Ctrl SPI_Ctrl(
     .clk(clk_66kHz),
     .rst(rst),
     .MISO(MISO),
@@ -46,3 +46,12 @@ module JSTK2_SPI_interface(
     );
 
 endmodule
+
+//
+//                 __
+//                / _)
+//       _.----._/ /
+//      /         /
+//   __/ (  | (  |
+//  /__.-'|_|--|_|
+//

@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Michal Walek
 // 
 // Create Date: 08/02/2024 10:11:48 PM
 // Design Name: 
 // Module Name: SPI_Ctrl
 // Project Name: 
-// Target Devices: 
+// Target Devices: Basys3
 // Tool Versions: 
-// Description: 
+// Description: Receives 5 bytes of data and holds that value at DOUT until next data package is received.
 // 
 // Dependencies: 
 // 
@@ -84,3 +84,13 @@ parameter   Init = 2'b00,
     assign SS = SS_Ctrl;
     
 endmodule
+
+//
+//                 __
+//                / _)
+//       _.----._/ /
+//      /         /
+//   __/ (  | (  |
+//  /__.-'|_|--|_|
+//
+
