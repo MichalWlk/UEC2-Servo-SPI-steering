@@ -25,11 +25,18 @@ module JSTK2_SPI_interface(
     input rst,
     input MISO,
     output SS,
-    output SCLK
+    output SCLK,
+    output [9:0] x_val,
+    output [9:0] y_val
     );
     
     wire [39:0] xy_values;
     wire clk_66kHz;
+
+    assign SCLK = clk_66kHz;
+    assign x_val = {xy_values[25:24], xy_values[39:32]};
+    assign y_val = {xy_values[9:8], xy_values[23:16]};
+
 
     SPI_Ctrl SPI_Ctrl(
     .clk(clk_66kHz),
