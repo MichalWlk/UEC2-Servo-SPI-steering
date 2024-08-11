@@ -24,7 +24,7 @@ module Turn_Ctrl(
     input clk,
     input rst,
     input logic [11:0] cntr_val,
-    input logic [9:0] x_val,
+    input logic [9:0] y_val,
     output pwm_turn
     );
 
@@ -36,7 +36,7 @@ module Turn_Ctrl(
         if(rst) begin
             pwm_state <= 0;
         end else begin
-            if(cntr_val < x_val) begin  //bedzie dzialac tylko jesli wychelnie jstk w prawo daje 1000 a w lewo 0
+            if(cntr_val < y_val) begin  //bedzie dzialac tylko jesli wychelnie jstk w prawo daje 1000 a w lewo 0
                 pwm_state <= 1'b1;
             end else begin
                 pwm_state <= 1'b0;
