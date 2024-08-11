@@ -23,8 +23,25 @@
 module Steering_Y(
     input clk,
     input rst,
-    input y_val,
+    input logic [9:0] y_val,
     output PWM_y
+    );
+
+    wire [11:0] cntr_out;
+
+
+    Turn_Ctrl Turn_Ctrl(
+    .clk(clk),
+    .rst(rst),
+    .cntr_val(cntr_out),
+    .y_val(y_val),
+    .pwm_turn(PWM_y)
+    );
+
+    Counter_Y Counter_Y(
+    .clk(clk),
+    .rst(rst),
+    .cntd_val(cntr_out)
     );
 
 

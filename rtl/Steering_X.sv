@@ -23,12 +23,12 @@
 module Steering_X(
     input clk,
     input rst,
-    input x_val,
+    input logic [9:0] x_val,
     output PWM_right,
     output PWM_left
     );
 
-    wire [11:0] cntr_out;
+    wire [11:0] cntr_out;   /*niewiadomo czy sterowanie dziala bo w specyfikacji nie ma info jaki ma byc okres podawanego sygnalu (tutaj T=3ms bo symetrzycznie) */
 
     Left_Ctrl Left_Ctrl(
     .clk(clk),

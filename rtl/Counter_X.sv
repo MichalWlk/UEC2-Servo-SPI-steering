@@ -23,7 +23,7 @@
 module Counter_X(
     input clk,
     input rst,
-    output cntd_val
+    output logic [11:0] cntd_val
     );
 
     reg [11:0] value;

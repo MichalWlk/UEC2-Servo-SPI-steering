@@ -23,8 +23,8 @@
 module Left_Ctrl(
     input clk,
     input rst,
-    input cntr_val,
-    input x_val,
+    input logic [11:0] cntr_val,
+    input logic [9:0] x_val,
     output pwm_left
     );
 
