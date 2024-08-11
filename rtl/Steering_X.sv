@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Simple divider 100MHz -> 66,67KHz
+// Description: Module that coverts value provided by JSTK2 into PWM signal that drives rear wheels.
 // 
 // Dependencies: 
 // 
@@ -24,10 +24,32 @@ module Steering_X(
     input clk,
     input rst,
     input x_val,
-    output PWM_x
+    output PWM_right,
+    output PWM_left
     );
 
+    wire [11:0] cntr_out;
 
+    Left_Ctrl Left_Ctrl(
+    .clk(clk),
+    .rst(rst),
+    .cntr_val(cntr_out),
+    .x_val(x_val),
+    .pwm_left(PWM_left)
+    );
 
+    Right_Ctrl Right_Ctrl(
+    .clk(clk),
+    .rst(rst),
+    .cntr_val(cntr_out),
+    .x_val(x_val),
+    .pwm_right(PWM_right)
+    );
+
+    Counter_X Counter_X(
+    .clk(clk),
+    .rst(rst),
+    .cntd_val(cntr_out)
+    );
 
 endmodule

@@ -26,11 +26,14 @@ module SPI_Sterring_top(
     input MISO,
     output SS,
     output SCLK,
-    output PWM_x,
+    output PWM_x_left,
+    output PWM_x_right,
     output PWM_y
     );
 
-    wire [9:0] x_val, y_val;
+    wire [9:0] x_val, y_val, x_val_servo; //pewnie jeszcze to samo dla Y, tzn assign +1000
+
+    assign x_val_servo = x_val + 1000;
 
     JSTK2_SPI_interface JSTK2_SPI_interface(
     .clk(clk),
@@ -45,8 +48,9 @@ module SPI_Sterring_top(
     Steering_X Steering_X(
     .clk(clk),
     .rst(rst),
-    .x_val(x_val),
-    .PWM_x(PWM_x)
+    .x_val(x_val_servo),
+    .PWM_left(PWM_x_left),
+    .PWM_right(PWM_x_right)
     );
 
     Steering_Y Steering_Y(
