@@ -22,10 +22,10 @@
 
 module SPI_Sterring_top(
     input clk,
-    input rst,
-    input MISO,
-    output SS,
-    output SCLK,
+    input btnC,
+    input JSTK2_MISO,
+    output JSTK2_SS,
+    output JSTK2_SCLK,
     output PWM_x_left,
     output PWM_x_right,
     output PWM_y
@@ -38,17 +38,17 @@ module SPI_Sterring_top(
 
     JSTK2_SPI_interface JSTK2_SPI_interface(
     .clk(clk),
-    .rst(rst),
-    .MISO(MISO),
-    .SS(SS),
-    .SCLK(SCLK),
+    .rst(btnC),
+    .MISO(JSTK2_MISO),
+    .SS(JSTK2_SS),
+    .SCLK(JSTK2_SCLK),
     .x_val(x_val),
     .y_val(y_val)
     );
 
     Steering_X Steering_X(
     .clk(clk),
-    .rst(rst),
+    .rst(btnC),
     .x_val(x_val_servo),
     .PWM_left(PWM_x_left),
     .PWM_right(PWM_x_right)
@@ -56,10 +56,19 @@ module SPI_Sterring_top(
 
     Steering_Y Steering_Y(
     .clk(clk),
-    .rst(rst),
+    .rst(btnC),
     .y_val(y_val_servo),
     .PWM_y(PWM_y)
     );
 
 
 endmodule
+
+//
+//                 __
+//                / _)
+//       _.----._/ /
+//      /         /
+//   __/ (  | (  |
+//  /__.-'|_|--|_|
+//

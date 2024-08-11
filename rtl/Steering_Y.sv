@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Simple divider 100MHz -> 66,67KHz
+// Description: Module for generating PWM singal to turn front wheels
 // 
 // Dependencies: 
 // 
@@ -43,7 +43,6 @@ module Steering_Y(
     .rst(rst),
     .cntd_val(cntr_out)
     );
-
 
 
 endmodule
