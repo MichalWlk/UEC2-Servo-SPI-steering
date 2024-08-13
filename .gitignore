@@ -4,3 +4,5 @@
 /fpga/build/vga_project.runs
 /fpga/build/vga_project.cache
 /fpga/build/vga_project.xpr
+dvt_build.log
+.dvt/default.build.auto.1
