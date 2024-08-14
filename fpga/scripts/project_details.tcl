@@ -13,10 +13,10 @@
 #                   Project details                   #
 #-----------------------------------------------------#
 # Project name                                  -- EDIT
-set project_name vga_project
+set project_name SPI_Steering
 
 # Top module name                               -- EDIT
-set top_module top_vga_basys3
+set top_module SPI_Steering_top
 
 # FPGA device
 set target xc7a35tcpg236-1
@@ -31,15 +31,19 @@ set xdc_files {
 
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
-    ../rtl/vga_pkg.sv
-    ../rtl/vga_if.sv \
-    ../rtl/vga_timing.sv
-    ../rtl/draw_bg.sv
-    ../rtl/top_vga.sv
-    ../rtl/draw_rect.sv
-    ../rtl/draw_mouse.sv
-    ../rtl/hold.sv
-    rtl/top_vga_basys3.sv
+../rtl/Clk_Div.sv \
+        ../rtl/Counter_X.sv \
+        ../rtl/Counter_Y.sv \
+        ../rtl/JSTK2_SPI_interface.sv \
+        ../rtl/Left_Ctrl.sv \
+        ../rtl/Right_Ctrl.sv \
+        ../rtl/SPI_Ctrl.sv \
+        ../rtl/SPI_Steering_top.sv \
+        ../rtl/Steering_X.sv \
+        ../rtl/Steering_Y.sv \
+        ../rtl/Turn_Ctrl.sv
+
+
     
 
 }
@@ -50,11 +54,8 @@ set verilog_files {
  }
 
 #Specify VHDL design files location            -- EDIT
-set vhdl_files {
-        ../rtl/MouseCtl.vhd 
-        ../rtl/Ps2Interface.vhd
-        ../rtl/MouseDisplay.vhd
-}
+
+
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {

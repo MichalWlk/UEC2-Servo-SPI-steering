@@ -11,8 +11,8 @@ create_clock -period 10.000 [get_ports clk]
 set_input_jitter [get_clocks -of_objects [get_ports clk]] 0.100
 
 
-set_false_path -to [get_cells  -hier {*seq_reg*[0]} -filter {is_sequential}]
-set_property PHASESHIFT_MODE WAVEFORM [get_cells -hierarchical *adv*]
+#set_false_path -to [get_cells  -hier {*seq_reg*[0]} -filter {is_sequential}]
+#set_property PHASESHIFT_MODE WAVEFORM [get_cells -hierarchical *adv*]
 ## Switches
 #set_property PACKAGE_PIN V17 [get_ports {sw[0]}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
@@ -156,14 +156,14 @@ set_property PACKAGE_PIN G2 [get_ports {JSTK2_SCLK}]
 
 ##Pmod Header JB
 ##Sch name = JB1
-set_property PACKAGE_PIN A14 [get_ports {PWM_X_left}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PWM_X_left}]
+set_property PACKAGE_PIN A14 [get_ports {PWM_x_left}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PWM_x_left}]
 ##Sch name = JB2
-set_property PACKAGE_PIN A16 [get_ports {PWM_X_right}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PWM_X_right}]
+set_property PACKAGE_PIN A16 [get_ports {PWM_x_right}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PWM_x_right}]
 ##Sch name = JB3
-set_property PACKAGE_PIN B15 [get_ports {PWM_Y}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PWM_Y}]
+set_property PACKAGE_PIN B15 [get_ports {PWM_y}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PWM_y}]
 ##Sch name = JB4
 #set_property PACKAGE_PIN B16 [get_ports {JB[3]}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[3]}]

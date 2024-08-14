@@ -1,8 +1,9 @@
 
 *.jou
 *.log
-/fpga/build/vga_project.runs
-/fpga/build/vga_project.cache
-/fpga/build/vga_project.xpr
+*.pb
+/fpga/build
 dvt_build.log
 .dvt/default.build.auto.1
+*.bit
+xsim.dir
