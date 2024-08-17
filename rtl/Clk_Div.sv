@@ -28,7 +28,7 @@ module Clk_Div(
 
 
     reg [9:0] CntVal = 10'd750; //1:15u=66667; 100M:66667=1500; 1500:2=750 (bo rising oraz falling edge w takcie zegara) _|-|_|-| <--2 okresy, 4 zmiany poziomow
-    reg ClkCntr;
+    reg [9:0] ClkCntr;
     reg ClkState = 0;
 
     assign clk_div_out = ClkState;
