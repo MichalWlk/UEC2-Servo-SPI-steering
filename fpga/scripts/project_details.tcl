@@ -41,7 +41,8 @@ set sv_files {
         ../rtl/SPI_Steering_top.sv \
         ../rtl/Steering_X.sv \
         ../rtl/Steering_Y.sv \
-        ../rtl/Turn_Ctrl.sv
+        ../rtl/Turn_Ctrl.sv \
+        ../rtl/y_val_limiter
 
 
     
