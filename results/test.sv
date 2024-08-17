@@ -1,0 +1,1 @@
+//rezultaty musza byc

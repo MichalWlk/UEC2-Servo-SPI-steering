@@ -16,7 +16,7 @@
 set project_name SPI_Steering
 
 # Top module name                               -- EDIT
-set top_module SPI_Steering_top
+set top_module SPI_Steering_top.sv
 
 # FPGA device
 set target xc7a35tcpg236-1
@@ -42,7 +42,7 @@ set sv_files {
         ../rtl/Steering_X.sv \
         ../rtl/Steering_Y.sv \
         ../rtl/Turn_Ctrl.sv \
-        ../rtl/y_val_limiter
+        ../rtl/y_val_limiter.sv
 
 
     
