@@ -42,9 +42,9 @@ set sv_files {
         ../rtl/Steering_X.sv \
         ../rtl/Steering_Y.sv \
         ../rtl/Turn_Ctrl.sv \
-        ../rtl/y_val_limiter.sv
-
-
+        ../rtl/y_val_limiter.sv \
+        ../rtl/DEBUG_Bin_to_BCD.sv \
+        ../rtl/DEBUG_ssd_ctrl.sv
     
 
 }

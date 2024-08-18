@@ -28,13 +28,20 @@ module SPI_Sterring_top(
     output JSTK2_SCLK,
     output PWM_x_left,
     output PWM_x_right,
-    output PWM_y
+    output PWM_y,
+    input [0:0] sw,
+    output [3:0] an,
+    output [6:0] seg
     );
 
     wire [10:0] x_val, y_val, x_val_servo, y_val_servo; //pewnie jeszcze to samo dla Y, tzn assign +1000
 
     assign x_val_servo = x_val + 1000;
     assign y_val_servo = y_val + 1000;
+
+    wire [9:0] posData;
+
+    assign posData = (sw[0] == 1'b1) ? {x_val[9:0]} : {y_val[9:0]}; //DEBUG
 
     JSTK2_SPI_interface JSTK2_SPI_interface(
     .clk(clk),
@@ -60,6 +67,15 @@ module SPI_Sterring_top(
     .y_val(y_val_servo),
     .PWM_y(PWM_y)
     );
+
+    DEBUG_ssd_ctrl DEBUG_ssd_ctrl(
+    .CLK(clk),
+    .RST(btnC),
+    .DIN(posData),
+    .AN(an),
+    .SEG(seg)
+    );
+
 
 
 endmodule
