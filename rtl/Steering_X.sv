@@ -23,7 +23,7 @@
 module Steering_X(
     input clk,
     input rst,
-    input logic [9:0] x_val,
+    input logic [10:0] x_val,
     output PWM_right,
     output PWM_left
     );

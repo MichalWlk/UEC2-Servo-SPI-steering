@@ -23,12 +23,12 @@
 module Steering_Y(
     input clk,
     input rst,
-    input logic [9:0] y_val,
+    input logic [10:0] y_val,
     output PWM_y
     );
 
     wire [11:0] cntr_out;
-    wire [9:0] y_val_limited;
+    wire [10:0] y_val_limited;
 
     y_val_limiter y_val_limiter(
         .clk(clk),

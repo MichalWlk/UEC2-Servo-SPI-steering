@@ -26,16 +26,18 @@ module JSTK2_SPI_interface(
     input MISO,
     output SS,
     output SCLK,
-    output [9:0] x_val,
-    output [9:0] y_val
+    output [10:0] x_val,
+    output [10:0] y_val
     );
     
     wire [39:0] xy_values;
     wire clk_66kHz;
 
+    logic [0:0] zero = 0;
+
     assign SCLK = clk_66kHz;
-    assign y_val = {xy_values[25:24], xy_values[39:32]};    //zalezy od orientacji joysticka(teraz: jstk zapiety w bok; normalnie to jest os X)
-    assign x_val = {xy_values[9:8], xy_values[23:16]};      //potencjalny problem: wychylenie do gory moze dac 0 a do dolu 1000 => zmienic > / < w left/right ctrl
+    assign y_val = {zero, xy_values[25:24], xy_values[39:32]};    //zalezy od orientacji joysticka(teraz: jstk zapiety w bok; normalnie to jest os X)
+    assign x_val = {zero, xy_values[9:8], xy_values[23:16]};      //potencjalny problem: wychylenie do gory moze dac 0 a do dolu 1000 => zmienic > / < w left/right ctrl
 
 
     SPI_Ctrl SPI_Ctrl(

@@ -23,8 +23,8 @@
 module y_val_limiter(
     input clk,
     input rst,
-    input logic [9:0] y_val,
-    output logic [9:0] y_val_lim
+    input logic [10:0] y_val,
+    output logic [10:0] y_val_lim
     );
 
 

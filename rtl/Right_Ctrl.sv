@@ -24,7 +24,7 @@ module Right_Ctrl(
     input clk,
     input rst,
     input logic [11:0] cntr_val,
-    input logic [9:0] x_val,
+    input logic [10:0] x_val,
     output pwm_right
     );
 

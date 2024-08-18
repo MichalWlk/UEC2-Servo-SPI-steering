@@ -24,7 +24,7 @@ module Turn_Ctrl(
     input clk,
     input rst,
     input logic [11:0] cntr_val,
-    input logic [9:0] y_val,
+    input logic [10:0] y_val,
     output pwm_turn
     );
 
