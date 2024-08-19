@@ -36,10 +36,18 @@ module Right_Ctrl(
         if(rst) begin
             pwm_state <= 0;
         end else begin
-            if(cntr_val > x_val) begin
-                pwm_state <= 1'b1;
+            if(x_val > 1500) begin
+                if(cntr_val < (1500 - (x_val - 1500))) begin
+                    pwm_state <= 1'b1;
+                end else begin
+                    pwm_state <= 1'b0;
+                end
             end else begin
-                pwm_state <= 1'b0;
+                if(cntr_val < (1500 + (1500 - x_val))) begin
+                    pwm_state <= 1'b1;
+                end else begin
+                    pwm_state <= 1'b0;
+                end
             end
         end
     end

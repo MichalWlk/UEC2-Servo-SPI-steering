@@ -36,7 +36,7 @@ module Counter_X(
             value <= 0;
             count100 <= 0;
         end else begin
-            if(value == 3000) begin
+            if(value == 20000) begin
                 value <= 0;
                 count100 <= 0;
             end else begin
