@@ -24,6 +24,7 @@ module SPI_Ctrl(
     input clk,
     input rst,
     input MISO,
+    output SCLK,
     output logic SS,
     output [39:0] DOUT
     );
@@ -37,6 +38,9 @@ reg [1:0] State;
 parameter   Init = 2'b00,
             Receive = 2'b01,
             Done = 2'b11;
+
+
+    assign SCLK = (SS == 1'b0) ? clk : 1'b0;
 
 
     always @(posedge clk)

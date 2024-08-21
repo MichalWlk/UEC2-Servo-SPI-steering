@@ -36,8 +36,8 @@ module SPI_Sterring_top(
 
     wire [10:0] x_val, y_val, x_val_servo, y_val_servo; //pewnie jeszcze to samo dla Y, tzn assign +1000
 
-    assign x_val_servo = x_val + 1000;
-    assign y_val_servo = y_val + 1000;
+    assign x_val_servo = x_val + 11'b1000;
+    assign y_val_servo = y_val + 11'b1000;
 
     wire [9:0] posData;
 
