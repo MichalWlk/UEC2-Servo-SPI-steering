@@ -61,11 +61,11 @@ parameter   Init = 2'b00,
                     SR_temp <= {SR_temp[38:0], MISO};
                     BitCntr <= BitCntr + 1;
                     SR <= SR;
-                    if(BitCntr == 6'd40) begin
-                        SS <= 1;
+                    if(BitCntr == 6'd39) begin
+                        SS <= 1'b1;
                         State <= Done;               
                     end else begin
-                        SS <= 0;
+                        SS <= 1'b0;
                         State <= Receive;
                     end
                 end
