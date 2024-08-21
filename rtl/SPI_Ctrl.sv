@@ -43,7 +43,7 @@ parameter   Init = 2'b00,
     assign SCLK = (SS == 1'b0) ? clk : 1'b0;
 
 
-    always @(posedge clk)
+    always @(negedge clk)
     begin
         if(rst)
         begin
