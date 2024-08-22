@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Generates PWM signal by cheking if x value (from SPI +1000) is higher or lower than counted value (counts 1000 in 1ms => T=3ms)
+// Description: Generates PWM signal by cheking if x value (from SPI +1000) is higher or lower than counted value (counts 1000 in 1ms; T=20ms => 50Hz)
 // 
 // Dependencies: 
 // 
@@ -23,7 +23,7 @@
 module Left_Ctrl(
     input clk,
     input rst,
-    input logic [11:0] cntr_val,
+    input logic [14:0] cntr_val,
     input logic [10:0] x_val,
     output pwm_left
     );
