@@ -23,11 +23,11 @@
 module Counter_Y(
     input clk,
     input rst,
-    output logic [11:0] cntd_val
+    output logic [14:0] cntd_val
     );
 
-    reg [11:0] value;
-    reg [6:0] count100;
+    logic [14:0] value;
+    logic [6:0] count100;
 
     assign cntd_val = value;
 
