@@ -27,7 +27,7 @@ module Steering_Y(
     output PWM_y
     );
 
-    wire [11:0] cntr_out;
+    wire [14:0] cntr_out;
     wire [10:0] y_val_limited;
 
     y_val_limiter y_val_limiter(

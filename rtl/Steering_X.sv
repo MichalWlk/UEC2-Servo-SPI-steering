@@ -28,7 +28,7 @@ module Steering_X(
     output PWM_left
     );
 
-    wire [11:0] cntr_out;   /*niewiadomo czy sterowanie dziala bo w specyfikacji nie ma info jaki ma byc okres podawanego sygnalu (tutaj T=3ms bo symetrzycznie) */
+    wire [14:0] cntr_out;   /*niewiadomo czy sterowanie dziala bo w specyfikacji nie ma info jaki ma byc okres podawanego sygnalu (tutaj T=20ms tak jak w sg90) */
 
     Left_Ctrl Left_Ctrl(
     .clk(clk),
