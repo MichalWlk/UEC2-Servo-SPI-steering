@@ -29,7 +29,6 @@ module SPI_Ctrl(
     output [39:0] DOUT
     );
     
-reg SS_Ctrl; //WAZNE: zakladam, ze podanie ponownie 0 na SS (active low) rozpoczyna przesylanie paczki 5 bajtow od poczatku (a nie SCLK - jesli tak to konieczna modyfikacja)
 reg [39:0] SR;
 reg [39:0] SR_temp;
 reg [5:0] BitCntr;

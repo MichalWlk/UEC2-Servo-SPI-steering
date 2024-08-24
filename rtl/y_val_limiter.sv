@@ -27,7 +27,27 @@ module y_val_limiter(
     output logic [10:0] y_val_lim
     );
 
+    assign y_val_lim = y_val - 300;
 
+/*
+    always @(posedge clk) begin
+        if(rst) begin
+            y_val_lim <= 0;
+        end else begin
+            if(y_val > 1500) begin
+                y_val_lim <= 1500;
+            end else begin
+                if(y_val < 500) begin
+                    y_val_lim <= 500;
+                end else begin
+                    y_val_lim <= y_val;
+                end
+            end
+        end
+    end
+*/
+
+/*
     always @(posedge clk) begin
         if(rst) begin
             y_val_lim <= 0;
@@ -47,7 +67,7 @@ module y_val_limiter(
             end
         end
     end
-
+*/
 
 
 endmodule
