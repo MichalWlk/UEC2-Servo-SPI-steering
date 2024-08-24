@@ -42,7 +42,7 @@ module DEBUG_Bin_to_BCD(
 			input CLK;						// 100Mhz CLK
 			input RST;						// Reset
 			input START;					// Signal to initialize conversion
-			input [9:0] BIN;				// Binary value to be converted
+			input [10:0] BIN;				// Binary value to be converted
 			output [15:0] BCDOUT;		// 4 digit binary coded decimal output
 
 

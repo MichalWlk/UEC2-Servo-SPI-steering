@@ -30,6 +30,8 @@ module Right_Ctrl(
 
     logic pwm_state;
 
+    //logic [10:0] DEBUG_x_val = 1510;
+
     assign pwm_right = pwm_state;
 
     always @(posedge clk) begin

@@ -39,7 +39,7 @@ module DEBUG_ssd_ctrl(
 	// ===========================================================================
 			input CLK;						// 100Mhz clock
 			input RST;						// Reset
-			input [9:0] DIN;				// Input data to display
+			input [10:0] DIN;				// Input data to display
 			output [3:0] AN;				// Anodes for seven segment display
 			output [6:0] SEG;				// Cathodes for seven segment display
 			

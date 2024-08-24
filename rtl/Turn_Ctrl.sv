@@ -30,6 +30,8 @@ module Turn_Ctrl(
 
     logic pwm_state;
 
+    //logic [10:0] DEBUG_y_val = 1600;
+
     assign pwm_turn = pwm_state;
 
     always @(posedge clk) begin

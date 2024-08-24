@@ -36,12 +36,12 @@ module SPI_Sterring_top(
 
     wire [10:0] x_val, y_val, x_val_servo, y_val_servo; //pewnie jeszcze to samo dla Y, tzn assign +1000
 
-    assign x_val_servo = x_val + 11'b1000;
-    assign y_val_servo = y_val + 11'b1000;
+    assign x_val_servo = x_val + 11'd1000;
+    assign y_val_servo = y_val + 11'd1000;
 
-    wire [9:0] posData;
+    wire [10:0] posData;
 
-    assign posData = (sw[0] == 1'b1) ? {x_val[9:0]} : {y_val[9:0]}; //DEBUG
+    assign posData = (sw[0] == 1'b1) ? {x_val_servo[10:0]} : {y_val_servo[10:0]}; //DEBUG
 
     JSTK2_SPI_interface JSTK2_SPI_interface(
     .clk(clk),
