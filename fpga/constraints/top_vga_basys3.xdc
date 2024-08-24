@@ -184,17 +184,17 @@ set_property PACKAGE_PIN B15 [get_ports {PWM_y}]
 
 ##Pmod Header JC
 ##Sch name = JC1
-#set_property PACKAGE_PIN K17 [get_ports {JC[0]}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[0]}]
+set_property PACKAGE_PIN K17 [get_ports {JSTK2_SS_X}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SS_X}]
 ##Sch name = JC2
 #set_property PACKAGE_PIN M18 [get_ports {JC[1]}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[1]}]
 ##Sch name = JC3
-#set_property PACKAGE_PIN N17 [get_ports {JC[2]}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[2]}]
+set_property PACKAGE_PIN N17 [get_ports {JSTK2_MISO_X}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_MISO_X}]
 ##Sch name = JC4
-#set_property PACKAGE_PIN P18 [get_ports {JC[3]}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[3]}]
+set_property PACKAGE_PIN P18 [get_ports {JSTK2_SCLK_X}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SCLK_X}]
 ##Sch name = JC7
 #set_property PACKAGE_PIN L17 [get_ports {JC[4]}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[4]}]

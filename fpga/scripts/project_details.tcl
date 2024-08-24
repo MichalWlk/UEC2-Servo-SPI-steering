@@ -44,7 +44,10 @@ set sv_files {
         ../rtl/Turn_Ctrl.sv \
         ../rtl/y_val_limiter.sv \
         ../rtl/DEBUG_Bin_to_BCD.sv \
-        ../rtl/DEBUG_ssd_ctrl.sv
+        ../rtl/DEBUG_ssd_ctrl.sv \
+        ../rtl/JSTK_SPI_if_X.sv \
+        ../rtl/Clk_Div_X.sv \
+        ../rtl/SPI_Ctrl_X.sv
     
 
 }
