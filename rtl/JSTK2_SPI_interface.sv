@@ -37,7 +37,7 @@ module JSTK2_SPI_interface(
 
     //assign SCLK = clk_66kHz;
     assign y_val = {zero, xy_values[25:24], xy_values[39:32]};    //zalezy od orientacji joysticka(teraz: jstk zapiety w bok; normalnie to jest os X)
-    assign x_val = {zero, xy_values[9:8], xy_values[23:16]};      //potencjalny problem: wychylenie do gory moze dac 0 a do dolu 1000 => zmienic > / < w left/right ctrl
+    //assign x_val = {zero, xy_values[9:8], xy_values[23:16]};      //potencjalny problem: wychylenie do gory moze dac 0 a do dolu 1000 => zmienic > / < w left/right ctrl
 
 
     SPI_Ctrl SPI_Ctrl(

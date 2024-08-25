@@ -32,6 +32,11 @@ module SPI_Sterring_top(
     output JSTK2_SS_X,
     output JSTK2_SCLK_X,
 
+    input PROX_FL,
+    input PROX_FR,
+    input PROX_RL,
+    input PROX_RR,
+
     output PWM_x_left,
     output PWM_x_right,
     output PWM_y,
@@ -41,7 +46,7 @@ module SPI_Sterring_top(
     output [6:0] seg
     );
 
-    wire [10:0] x_val, y_val, x_val_servo, y_val_servo; //pewnie jeszcze to samo dla Y, tzn assign +1000
+    wire [10:0] x_val, y_val, x_val_servo, y_val_servo, x_val_servo_checked;
 
     assign x_val_servo = x_val + 11'd1000;
     assign y_val_servo = y_val + 1000;
@@ -69,11 +74,21 @@ module SPI_Sterring_top(
     .x_val(x_val)
     );
 
+    Sensor_Ctrl Sensor_Ctrl(
+    .clk(clk),
+    .rst(btnC),
+    .prox_FR(PROX_FR),
+    .prox_FL(PROX_FL), 
+    .prox_RR(PROX_RR), 
+    .prox_RL(PROX_RL), 
+    .x_val(x_val_servo),
+    .x_val_checked(x_val_servo_checked)
+    );
 
     Steering_X Steering_X(
     .clk(clk),
     .rst(btnC),
-    .x_val(x_val_servo),
+    .x_val(x_val_servo_checked),
     .PWM_left(PWM_x_left),
     .PWM_right(PWM_x_right)
     );
