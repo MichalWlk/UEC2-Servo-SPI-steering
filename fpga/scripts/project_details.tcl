@@ -48,7 +48,10 @@ set sv_files {
         ../rtl/JSTK_SPI_if_X.sv \
         ../rtl/Clk_Div_X.sv \
         ../rtl/SPI_Ctrl_X.sv \
-        ../rtl/Sensor_Ctrl.sv
+        ../rtl/Sensor_Ctrl.sv \
+        ..rtl/Led_Ctrl.sv \
+        ..rtl/Led_Comp.sv \
+        ..rtl/Led_PWM.sv
 
 }
 

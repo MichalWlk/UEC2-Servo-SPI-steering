@@ -37,6 +37,8 @@ module SPI_Sterring_top(
     input PROX_RL,
     input PROX_RR,
 
+    output [15:0] led,
+
     output PWM_x_left,
     output PWM_x_right,
     output PWM_y,
@@ -83,6 +85,13 @@ module SPI_Sterring_top(
     .prox_RL(PROX_RL), 
     .x_val(x_val_servo),
     .x_val_checked(x_val_servo_checked)
+    );
+
+    Led_Ctrl Led_Ctrl(
+    .clk(clk),
+    .rst(btnC),
+    .velocity(x_val),
+    .led_out(led)
     );
 
     Steering_X Steering_X(
