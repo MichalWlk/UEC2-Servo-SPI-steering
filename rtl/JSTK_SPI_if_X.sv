@@ -26,8 +26,8 @@ module JSTK_SPI_if_X(
     input MISO,
     output SS,
     output SCLK,
-    output [10:0] x_val
-    //output [10:0] y_val
+    output [10:0] x_val,
+    output x_bumper
     );
     
     wire [39:0] xy_values;
@@ -38,6 +38,7 @@ module JSTK_SPI_if_X(
     //assign SCLK = clk_66kHz;
     //assign y_val = {zero, xy_values[25:24], xy_values[39:32]};
     assign x_val = {zero, xy_values[9:8], xy_values[23:16]};
+    assign x_bumper = {xy_values[1]};
 
 
     SPI_Ctrl_X SPI_Ctrl_X(

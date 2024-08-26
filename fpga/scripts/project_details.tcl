@@ -49,9 +49,14 @@ set sv_files {
         ../rtl/Clk_Div_X.sv \
         ../rtl/SPI_Ctrl_X.sv \
         ../rtl/Sensor_Ctrl.sv \
-        ..rtl/Led_Ctrl.sv \
-        ..rtl/Led_Comp.sv \
-        ..rtl/Led_PWM.sv
+        ../rtl/Led_Ctrl.sv \
+        ../rtl/Led_Comp.sv \
+        ../rtl/Led_PWM.sv \
+        ../rtl/Timer_5s.sv \
+        ../rtl/Clk_Div_5Hz.sv \
+        ../rtl/Backtrack.sv \
+        ../rtl/Action_Translator.sv \
+        ../rtl/Val_SR.sv
 
 }
 

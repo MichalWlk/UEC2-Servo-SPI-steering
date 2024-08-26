@@ -48,12 +48,13 @@ module SPI_Sterring_top(
     output [6:0] seg
     );
 
-    wire [10:0] x_val, y_val, x_val_servo, y_val_servo, x_val_servo_checked;
+    wire [10:0] x_val, y_val, x_val_servo, y_val_servo, x_val_servo_checked, x_backtrack_out, y_backtrack_out;
 
     assign x_val_servo = x_val + 11'd1000;
     assign y_val_servo = y_val + 1000;
 
     wire [10:0] posData;
+    wire x_bumper, y_bumper;
 
     assign posData = (sw[0] == 1'b1) ? {x_val_servo[10:0]} : {y_val_servo[10:0]}; //DEBUG
 
@@ -63,8 +64,8 @@ module SPI_Sterring_top(
     .MISO(JSTK2_MISO),
     .SS(JSTK2_SS),
     .SCLK(JSTK2_SCLK),
-    //.x_val(x_val),
-    .y_val(y_val)
+    .y_val(y_val),
+    .y_bumper(y_bumper)
     );
 
     JSTK_SPI_if_X JSTK_SPI_if_X(
@@ -73,7 +74,8 @@ module SPI_Sterring_top(
     .MISO(JSTK2_MISO_X),
     .SS(JSTK2_SS_X),
     .SCLK(JSTK2_SCLK_X),
-    .x_val(x_val)
+    .x_val(x_val),
+    .x_bumper(x_bumper)
     );
 
     Sensor_Ctrl Sensor_Ctrl(
@@ -83,7 +85,7 @@ module SPI_Sterring_top(
     .prox_FL(PROX_FL), 
     .prox_RR(PROX_RR), 
     .prox_RL(PROX_RL), 
-    .x_val(x_val_servo),
+    .x_val(x_backtrack_out),
     .x_val_checked(x_val_servo_checked)
     );
 
@@ -92,6 +94,17 @@ module SPI_Sterring_top(
     .rst(btnC),
     .velocity(x_val),
     .led_out(led)
+    );
+
+    Backtrack Backtrack(
+    .clk(clk),
+    .rst(btnC),
+    .x_bumper(x_bumper),
+    .y_bumper(y_bumper),
+    .x_val(x_val_servo),
+    .y_val(y_val_servo),
+    .x_val_out(x_backtrack_out),
+    .y_val_out(y_backtrack_out)
     );
 
     Steering_X Steering_X(
@@ -105,7 +118,7 @@ module SPI_Sterring_top(
     Steering_Y Steering_Y(
     .clk(clk),
     .rst(btnC),
-    .y_val(y_val_servo),
+    .y_val(y_backtrack_out),
     .PWM_y(PWM_y)
     );
 
