@@ -7,3 +7,4 @@ dvt_build.log
 .dvt/default.build.auto.1
 *.bit
 xsim.dir
+/fpga/.Xil
