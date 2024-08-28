@@ -41,11 +41,11 @@ module SPI_Steering_top(
 
     output PWM_x_left,
     output PWM_x_right,
-    output PWM_y
+    output PWM_y,
 
     //input [0:0] sw,
-    //output [3:0] an,
-    //output [6:0] seg
+    output [3:0] an,
+    output [6:0] seg
     );
 
     wire [10:0] x_val, y_val, x_val_servo, y_val_servo, x_val_servo_checked, x_backtrack_out, y_backtrack_out;
@@ -121,6 +121,15 @@ module SPI_Steering_top(
     .y_val(y_backtrack_out),
     .PWM_y(PWM_y)
     );
+
+    sseg_ctrl sseg_ctrl(
+    .clk(clk),
+    .rst(btnC),
+    .x_val(x_val_servo),
+    .sseg_an(an),
+    .sseg_char(seg)
+    );
+
 /*
     DEBUG_ssd_ctrl DEBUG_ssd_ctrl(
     .CLK(clk),

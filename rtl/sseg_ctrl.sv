@@ -1,0 +1,72 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: Michal Walek
+// 
+// Create Date: 08/02/2024 10:03:50 PM          
+// Design Name: 
+// Module Name: sseg_ctrl
+// Project Name: 
+// Target Devices: Basys3
+// Tool Versions: 
+// Description: Structural module for 7-segment display
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module sseg_ctrl(
+    input clk,
+    input rst,
+    input x_val,
+    output logic [3:0] sseg_an,
+    output logic [6:0] sseg_char
+    );
+    
+    wire [3:0] an_sel, char_sel;
+    wire clk_1khz;
+
+    clk_div_1k clk_dic_1k(
+    .clk(clk),
+    .rst(rst),
+    .clk_1khz(clk_1khz)
+    );
+
+   anode_ctrl anode_ctrl(
+    .clk(clk_1khz),
+    .rst(rst),
+    .an_sel(an_sel)
+   );
+
+    char_ctrl char_ctrl(
+    .clk(clk_1khz),
+    .rst(rst),
+    .x_val(x_val),
+    .char_sel(char_sel)
+    );
+
+    sseg_out sseg_out(
+    .clk(clk),
+    .rst(rst),
+    .an_sel(an_sel),
+    .char_sel(char_sel),
+    .an_out(sseg_an),
+    .char_out(sseg_char)
+    );
+
+
+endmodule
+
+//
+//                 __
+//                / _)
+//       _.----._/ /
+//      /         /
+//   __/ (  | (  |
+//  /__.-'|_|--|_|
+//

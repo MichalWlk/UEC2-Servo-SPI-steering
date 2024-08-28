@@ -56,7 +56,12 @@ set sv_files {
         ../rtl/Clk_Div_5Hz.sv \
         ../rtl/Backtrack.sv \
         ../rtl/Action_Translator.sv \
-        ../rtl/Val_SR.sv
+        ../rtl/Val_SR.sv \
+        ../rtl/sseg_ctrl.sv \
+        ../rtl/anode_ctrl.sv \
+        ../rtl/char_ctrl.sv \
+        ../rtl/sseg_out.sv \
+        ../rtl/clk_div_1k.sv
 
 }
 
