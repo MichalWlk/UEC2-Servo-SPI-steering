@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module SPI_Sterring_top(
+module SPI_Steering_top(
     input clk,
     input btnC,
 
@@ -41,11 +41,11 @@ module SPI_Sterring_top(
 
     output PWM_x_left,
     output PWM_x_right,
-    output PWM_y,
+    output PWM_y
 
-    input [0:0] sw,
-    output [3:0] an,
-    output [6:0] seg
+    //input [0:0] sw,
+    //output [3:0] an,
+    //output [6:0] seg
     );
 
     wire [10:0] x_val, y_val, x_val_servo, y_val_servo, x_val_servo_checked, x_backtrack_out, y_backtrack_out;
@@ -56,7 +56,7 @@ module SPI_Sterring_top(
     wire [10:0] posData;
     wire x_bumper, y_bumper;
 
-    assign posData = (sw[0] == 1'b1) ? {x_val_servo[10:0]} : {y_val_servo[10:0]}; //DEBUG
+    //assign posData = (sw[0] == 1'b1) ? {x_val_servo[10:0]} : {y_val_servo[10:0]}; //DEBUG
 
     JSTK2_SPI_interface JSTK2_SPI_interface(
     .clk(clk),
@@ -121,7 +121,7 @@ module SPI_Sterring_top(
     .y_val(y_backtrack_out),
     .PWM_y(PWM_y)
     );
-
+/*
     DEBUG_ssd_ctrl DEBUG_ssd_ctrl(
     .CLK(clk),
     .RST(btnC),
@@ -129,7 +129,7 @@ module SPI_Sterring_top(
     .AN(an),
     .SEG(seg)
     );
-
+*/
 
 
 endmodule

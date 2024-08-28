@@ -81,20 +81,33 @@ module DEBUG_ssd_ctrl(
 			);
 
 
+
 			//------------------------------
 			//			Output Data Mux
 			// Select data to display on SSD
 			//------------------------------
-			always @(CNT[1], CNT[0], bcdData, RST) begin
+			always @(CNT[1], CNT[0], bcdData, RST, DIN) begin
 					if(RST == 1'b1) begin
-							muxData <= 4'b0000;
+							muxData = 4'b0000;
 					end
 					else begin
 							case (CNT)
-									2'b00 : muxData <= bcdData[3:0];
+									2'b10 : 
+											if(DIN > 1520) begin
+												muxData = "d";
+											end
+									2'b01 : if((DIN > 1479) & (DIN < 1521)) begin
+												muxData = "n";
+											end
+									2'b00 : if(DIN > 1480) begin
+												muxData = "r";
+											end
+									
+									/*
 									2'b01 : muxData <= bcdData[7:4];
 									2'b10 : muxData <= bcdData[11:8];
 									2'b11 : muxData <= bcdData[15:12];
+									*/
 							endcase
 					end
 			end
@@ -112,7 +125,9 @@ module DEBUG_ssd_ctrl(
 					end
 					else begin
 							case (muxData)
-
+									"d"  : SEG <= 7'b1011110;
+									"r"  : SEG <= 7'b1010000;
+									"n"  : SEG <= 7'b1010100;
 									4'h0 : SEG <= 7'b1000000;  // 0
 									4'h1 : SEG <= 7'b1111001;  // 1
 									4'h2 : SEG <= 7'b0100100;  // 2
