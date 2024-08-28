@@ -31,6 +31,9 @@ module Led_Comp(
         if(rst) begin
             led_on <= 0;
         end else begin
+            if((velocity > 479) && (velocity < 521)) begin
+                led_on <= 16'b0000000000000000;
+            end
             if(velocity > 520) begin
                 led_on <= 16'b0000000010000000;
             end
