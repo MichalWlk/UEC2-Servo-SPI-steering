@@ -140,17 +140,17 @@ set_property PACKAGE_PIN J2 [get_ports {JSTK2_MISO}]
 set_property PACKAGE_PIN G2 [get_ports {JSTK2_SCLK}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SCLK}]
 ##Sch name = JA7
-set_property PACKAGE_PIN H1 [get_ports {JSTK2_SCLK_X}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SCLK_X}]
-##Sch name = JA8
-set_property PACKAGE_PIN K2 [get_ports {JSTK2_MISO_X}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_MISO_X}]
-##Sch name = JA9
-#set_property PACKAGE_PIN H2 [get_ports {JA[6]}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JA[6]}]
-##Sch name = JA10
-set_property PACKAGE_PIN G3 [get_ports {JSTK2_SS_X}]
+set_property PACKAGE_PIN H1 [get_ports {JSTK2_SS_X}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SS_X}]
+##Sch name = JA8
+#set_property PACKAGE_PIN K2 [get_ports {JSTK2_MISO_X}]
+	#set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_MISO_X}]
+##Sch name = JA9
+set_property PACKAGE_PIN H2 [get_ports {JSTK2_MISO_X}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_MISO_X}]
+##Sch name = JA10
+set_property PACKAGE_PIN G3 [get_ports {JSTK2_SCLK_X}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SCLK_X}]
 
 
 
