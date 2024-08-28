@@ -168,33 +168,33 @@ set_property PACKAGE_PIN B15 [get_ports {PWM_y}]
 #set_property PACKAGE_PIN B16 [get_ports {JB[3]}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[3]}]
 ##Sch name = JB7
-set_property PACKAGE_PIN A15 [get_ports {PROX_FL}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FL}]
+#set_property PACKAGE_PIN A15 [get_ports {PROX_FL}]
+	#set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FL}]
 ##Sch name = JB8
-set_property PACKAGE_PIN A17 [get_ports {PROX_FR}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FR}]
+#set_property PACKAGE_PIN A17 [get_ports {PROX_FR}]
+	#set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FR}]
 ##Sch name = JB9
-set_property PACKAGE_PIN C15 [get_ports {PROX_RL}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_RL}]
+#set_property PACKAGE_PIN C15 [get_ports {PROX_RL}]
+	#set_property IOSTANDARD LVCMOS33 [get_ports {PROX_RL}]
 ##Sch name = JB10
-set_property PACKAGE_PIN C16 [get_ports {PROX_RR}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_RR}]
+#set_property PACKAGE_PIN C16 [get_ports {PROX_RR}]
+	#set_property IOSTANDARD LVCMOS33 [get_ports {PROX_RR}]
 
 
 
 ##Pmod Header JC
 ##Sch name = JC1
-#set_property PACKAGE_PIN K17 [get_ports {JSTK2_SS_X}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SS_X}]
+set_property PACKAGE_PIN K17 [get_ports {PROX_FL}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FL}]
 ##Sch name = JC2
-#set_property PACKAGE_PIN M18 [get_ports {JC[1]}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[1]}]
+set_property PACKAGE_PIN M18 [get_ports {PROX_FR}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FR}]
 ##Sch name = JC3
-#set_property PACKAGE_PIN N17 [get_ports {JSTK2_MISO_X}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_MISO_X}]
+set_property PACKAGE_PIN N17 [get_ports {PROX_RL}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_RL}]
 ##Sch name = JC4
-#set_property PACKAGE_PIN P18 [get_ports {JSTK2_SCLK_X}]
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JSTK2_SCLK_X}]
+set_property PACKAGE_PIN P18 [get_ports {PROX_RR}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {PROX_RR}]
 ##Sch name = JC7
 #set_property PACKAGE_PIN L17 [get_ports {PROX_FL}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {PROX_FL}]
