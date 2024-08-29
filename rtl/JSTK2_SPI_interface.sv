@@ -31,7 +31,7 @@ module JSTK2_SPI_interface(
     );
     
     wire [39:0] xy_values;
-    wire clk_66kHz;
+    wire clk_40khz;
 
     logic [0:0] zero = 0;
 
@@ -41,8 +41,9 @@ module JSTK2_SPI_interface(
 
 
     SPI_Ctrl SPI_Ctrl(
-    .clk(clk_66kHz),
+    .clk(clk),
     .rst(rst),
+    .ce(clk_40khz),
     .MISO(MISO),
     .SCLK(SCLK),
     .SS(SS),
@@ -52,7 +53,7 @@ module JSTK2_SPI_interface(
     Clk_Div Clk_Div(
     .clk(clk),
     .rst(rst),
-    .clk_div_out(clk_66kHz)
+    .clk_div_out(clk_40khz)
     );
 
 endmodule

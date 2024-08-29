@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Simple divider 100MHz -> 66,67KHz
+// Description: Simple divider 100MHz -> 40kHz
 // 
 // Dependencies: 
 // 
@@ -38,9 +38,11 @@ module Clk_Div(
             ClkCntr <= 0;
             ClkState <= 0;
         end else begin
-            if(ClkCntr == CntVal) begin
+            if(ClkState == 1) begin
+                ClkState <= 0;
+            end else if(ClkCntr == CntVal) begin
                 ClkCntr <= 0;
-                ClkState <= ~ClkState;
+                ClkState <= 1;
             end else begin
                 ClkCntr <= ClkCntr + 1;
             end
