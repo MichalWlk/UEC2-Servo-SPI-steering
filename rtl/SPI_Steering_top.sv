@@ -53,7 +53,7 @@ module SPI_Steering_top(
     assign x_val_servo = x_val + 11'd1000;
     assign y_val_servo = y_val + 1000;
 
-    wire [10:0] posData;
+    //wire [10:0] posData;
     wire x_bumper, y_bumper;
 
     //assign posData = (sw[0] == 1'b1) ? {x_val_servo[10:0]} : {y_val_servo[10:0]}; //DEBUG

@@ -23,12 +23,13 @@
 module sseg_ctrl(
     input clk,
     input rst,
-    input x_val,
+    input logic [10:0] x_val,
     output logic [3:0] sseg_an,
     output logic [6:0] sseg_char
     );
     
-    wire [3:0] an_sel, char_sel;
+    wire [3:0] an_sel;
+    wire [6:0] char_sel;
     wire clk_1khz;
 
     clk_div_1k clk_dic_1k(
@@ -51,8 +52,8 @@ module sseg_ctrl(
     );
 
     sseg_out sseg_out(
-    .clk(clk),
-    .rst(rst),
+    //.clk(clk),
+    //.rst(rst),
     .an_sel(an_sel),
     .char_sel(char_sel),
     .an_out(sseg_an),
