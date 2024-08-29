@@ -23,6 +23,7 @@
 module anode_ctrl(
     input clk,
     input rst,
+    input ce,
     output logic [3:0] an_sel
     );
     
@@ -33,7 +34,7 @@ module anode_ctrl(
     always @(posedge clk) begin
         if(rst) begin
             selected <= 4'b1110;
-        end else begin
+        end else if(ce == 1) begin
             selected <= {selected[2:0], selected[3]};
         end
     end

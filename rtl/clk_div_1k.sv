@@ -37,9 +37,11 @@ module clk_div_1k(
             ClkCntr <= 0;
             ClkState <= 0;
         end else begin
-            if(ClkCntr == CntVal) begin
+            if(ClkState == 1) begin
+                ClkState <= 0;
+            end else if(ClkCntr == CntVal) begin
                 ClkCntr <= 0;
-                ClkState <= ~ClkState;
+                ClkState <= 1;
             end else begin
                 ClkCntr <= ClkCntr + 1;
             end

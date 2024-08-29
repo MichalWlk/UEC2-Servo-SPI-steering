@@ -31,30 +31,33 @@ module sseg_ctrl(
     
     wire [3:0] an_sel;
     wire [6:0] char_sel;
-    wire clk_1khz, backtrack_active;
+    wire CE, backtrack_active;
 
     clk_div_1k clk_dic_1k(
     .clk(clk),
     .rst(rst),
-    .clk_1khz(clk_1khz)
+    .clk_1khz(CE)
     );
 
    anode_ctrl anode_ctrl(
-    .clk(clk_1khz),
+    .clk(clk),
     .rst(rst),
+    .ce(CE),
     .an_sel(an_sel)
    );
 
     char_ctrl char_ctrl(
-    .clk(clk_1khz),
+    .clk(clk),
     .rst(rst),
+    .ce(CE),
     .x_val(x_val),
     .char_sel(char_sel)
     );
 
     sseg_out sseg_out(
-    .clk(clk_1khz),
+    .clk(clk),
     .rst(rst),
+    .ce(CE),
     .backtrack_active(backtrack_active),
     .an_sel(an_sel),
     .char_sel(char_sel),

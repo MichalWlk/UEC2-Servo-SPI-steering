@@ -23,6 +23,7 @@
 module sseg_out(
     input clk,
     input rst,
+    input ce,
     input backtrack_active,
     input logic [3:0] an_sel,
     input logic [6:0] char_sel,
@@ -40,7 +41,7 @@ module sseg_out(
         if(rst) begin
             an_out <= 0;
             char_out <= 0;
-        end else begin
+        end else if(ce == 1) begin
             if(backtrack_active == 1) begin
                 char_out <= T;
                 an_out <= 4'b0111;
