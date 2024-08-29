@@ -23,6 +23,7 @@
 module Val_SR(
     input clk,
     input rst,
+    input ce,
     input backtrack_active,
     input logic [10:0] x_val,
     input logic [10:0] y_val,
@@ -37,7 +38,7 @@ module Val_SR(
             x_val_out <= 0;
             y_val_out <= 0;
             xy_reg <= 0;
-        end else begin
+        end else if(ce == 1) begin
             if(backtrack_active) begin
                 xy_reg <= {xy_reg[21:0], xy_reg[549:22]};
                 x_val_out <= {xy_reg[21:11]};

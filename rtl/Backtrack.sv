@@ -33,7 +33,7 @@ module Backtrack(
     );
 
 
-    wire timer_active, clk_5hz;
+    wire timer_active, CE_5hz;
 
     wire [10:0] x_val_stored, y_val_stored, x_val_op, y_val_op;
 
@@ -50,8 +50,9 @@ module Backtrack(
     );
     
     Val_SR Val_SR(
-    .clk(clk_5hz),
+    .clk(clk),
     .rst(rst),
+    .ce(CE_5hz),
     .backtrack_active(timer_active),
     .x_val(x_val),
     .y_val(y_val),
@@ -62,7 +63,7 @@ module Backtrack(
     Clk_Div_5Hz Clk_Div_5Hz(
     .clk(clk),
     .rst(rst),
-    .clk_5hz(clk_5hz)
+    .clk_5hz(CE_5hz)
     );
 
     Action_Translator Action_Translator(
