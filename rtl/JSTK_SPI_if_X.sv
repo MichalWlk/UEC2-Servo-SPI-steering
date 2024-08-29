@@ -42,8 +42,9 @@ module JSTK_SPI_if_X(
 
 
     SPI_Ctrl_X SPI_Ctrl_X(
-    .clk(clk_40kHz),
+    .clk(clk),
     .rst(rst),
+    .ce(clk_40kHz),
     .MISO(MISO),
     .SCLK(SCLK),
     .SS(SS),

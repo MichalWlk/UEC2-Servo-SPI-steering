@@ -23,6 +23,7 @@
 module SPI_Ctrl_X(
     input clk,
     input rst,
+    input ce,
     input MISO,
     output SCLK,
     output logic SS,
@@ -52,7 +53,7 @@ parameter   Init = 2'b00,
             BitCntr <= 0;
             State <= Init;
         end
-        else begin
+        else if(ce == 1) begin
             case (State)
                 Init: begin
                     SS <= 0;
