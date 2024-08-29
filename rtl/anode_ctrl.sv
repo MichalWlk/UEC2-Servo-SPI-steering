@@ -28,11 +28,13 @@ module anode_ctrl(
     
    logic [3:0] selected = 4'b1110;
 
+    assign an_sel = selected;
+
     always @(posedge clk) begin
         if(rst) begin
-            an_sel <= 4'b1110;
+            selected <= 4'b1110;
         end else begin
-            an_sel <= {selected[2:0], selected[3]};
+            selected <= {selected[2:0], selected[3]};
         end
     end
 

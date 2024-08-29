@@ -26,8 +26,8 @@ module clk_div_1k(
     output clk_1khz
     );
 
-    logic [15:0] CntVal = 16'd50000; //clk=1kHz
-    logic [12:0] ClkCntr = 0;
+    logic [15:0] CntVal = 16'd50000; //clk=100Hz
+    logic [15:0] ClkCntr = 0;
     logic ClkState = 0;
 
     assign clk_1khz = ClkState;

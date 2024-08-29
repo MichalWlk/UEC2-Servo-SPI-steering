@@ -28,7 +28,8 @@ module Backtrack(
     input logic [10:0] x_val,
     input logic [10:0] y_val,
     output logic [10:0] x_val_out,
-    output logic [10:0] y_val_out
+    output logic [10:0] y_val_out,
+    output backtrack_active
     );
 
 
@@ -38,7 +39,7 @@ module Backtrack(
 
     assign x_val_out = (timer_active) ? x_val_op : x_val;
     assign y_val_out = (timer_active) ? y_val_op : y_val;
-
+    assign backtrack_active = timer_active;
 
     Timer_5s Timer_5s(
     .clk(clk),

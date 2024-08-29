@@ -26,22 +26,22 @@ module char_ctrl(
     input logic [10:0] x_val,
     output logic [6:0] char_sel
     );
-    
+    /*
     parameter [6:0] D = 7'b0100001;
     parameter [6:0] N = 7'b0101011;
     parameter [6:0] R = 7'b0101111;
     parameter [6:0] RESET = 7'b1111111;
-
+    */
    always @(posedge clk) begin
     if(rst) begin
-        char_sel <= RESET;
+        char_sel <= 7'b1111111;
     end else begin
         if(x_val > 1520) begin
-            char_sel <= D;
+            char_sel <= 7'b0100001;
         end else if(x_val < 1480) begin
-            char_sel <= R;
+            char_sel <= 7'b0101111;
         end else begin
-            char_sel <= N;
+            char_sel <= 7'b0101011;
         end
     end
 end

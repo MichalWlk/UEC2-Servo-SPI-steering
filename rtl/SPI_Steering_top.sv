@@ -54,7 +54,7 @@ module SPI_Steering_top(
     assign y_val_servo = y_val + 1000;
 
     //wire [10:0] posData;
-    wire x_bumper, y_bumper;
+    wire x_bumper, y_bumper, backtrack_active;
 
     //assign posData = (sw[0] == 1'b1) ? {x_val_servo[10:0]} : {y_val_servo[10:0]}; //DEBUG
 
@@ -104,7 +104,8 @@ module SPI_Steering_top(
     .x_val(x_val_servo),
     .y_val(y_val_servo),
     .x_val_out(x_backtrack_out),
-    .y_val_out(y_backtrack_out)
+    .y_val_out(y_backtrack_out),
+    .backtrack_active(backtrack_active)
     );
 
     Steering_X Steering_X(
@@ -126,6 +127,7 @@ module SPI_Steering_top(
     .clk(clk),
     .rst(btnC),
     .x_val(x_val_servo),
+    .backtrack_active(backtrack_active),
     .sseg_an(an),
     .sseg_char(seg)
     );
