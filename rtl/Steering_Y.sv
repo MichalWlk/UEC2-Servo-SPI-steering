@@ -29,21 +29,16 @@ module Steering_Y(
 
 
     wire [14:0] cntr_out;
-    wire [10:0] y_val_limited;
+    wire [10:0] y_val_lim;
 
+    assign y_val_lim = y_val - 300;
 
-    y_val_limiter y_val_limiter(
-    .clk(clk),
-    .rst(rst),
-    .y_val(y_val),
-    .y_val_lim(y_val_limited)
-    );
 
     Turn_Ctrl Turn_Ctrl(
     .clk(clk),
     .rst(rst),
     .cntr_val(cntr_out),
-    .y_val(y_val_limited),
+    .y_val(y_val_lim),
     .pwm_turn(PWM_y)
     );
 
