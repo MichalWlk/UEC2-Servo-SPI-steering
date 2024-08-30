@@ -8,3 +8,4 @@ dvt_build.log
 *.bit
 xsim.dir
 /fpga/.Xil
+/.Xil
