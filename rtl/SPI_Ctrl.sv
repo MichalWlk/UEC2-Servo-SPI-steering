@@ -40,7 +40,7 @@ parameter   Init = 2'b00,
             Done = 2'b11;
 
 
-    assign SCLK = (SS == 1'b0) ? clk : 1'b0;
+    assign SCLK = (SS == 1'b0) ? ce : 1'b0;
 
 
     always @(negedge clk)
