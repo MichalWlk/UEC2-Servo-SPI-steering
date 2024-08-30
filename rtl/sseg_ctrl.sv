@@ -29,10 +29,12 @@ module sseg_ctrl(
     output logic [6:0] sseg_char
     );
     
+
     wire [3:0] an_sel;
     wire [6:0] char_sel;
     wire CE, backtrack_active;
 
+    
     clk_div_1k clk_dic_1k(
     .clk(clk),
     .rst(rst),

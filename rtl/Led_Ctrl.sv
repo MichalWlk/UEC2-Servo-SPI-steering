@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Top module for LED control
+// Description: Structural module for LED control
 // 
 // Dependencies: 
 // 
@@ -27,8 +27,10 @@ module Led_Ctrl(
     output logic [15:0] led_out
     );
 
+
     wire [15:0] led_on_wire;
 
+    
     Led_Comp Led_Comp(
     .clk(clk),
     .rst(rst),
@@ -42,5 +44,6 @@ module Led_Ctrl(
     .led_on(led_on_wire),
     .led_pwm(led_out)
     );
+
 
 endmodule

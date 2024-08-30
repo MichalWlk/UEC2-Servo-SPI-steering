@@ -35,45 +35,32 @@ module Sensor_Ctrl(
     always @(posedge clk) begin
         if(rst) begin
             x_val_checked <= 0;
-        end else begin
+        end 
+        else begin
             if((prox_FR && prox_FL) == 1) begin
                 if(x_val > 1500) begin
                     x_val_checked <= 1500;
-                end else begin
+                end 
+                else begin
                     x_val_checked <= x_val;
                 end
-            end else begin
+            end 
+            else begin
                 if((prox_RR && prox_RL) == 1) begin
                     if(x_val < 1500) begin
                         x_val_checked <= 1500;
-                    end else begin
+                    end 
+                    else begin
                         x_val_checked <= x_val;
                     end
-                end else begin
+                end 
+                else begin
                     x_val_checked <= x_val;
                 end
             end
         end
     end
 
-/*
-//rear obsticle
-    always @(posedge clk) begin
-        if(rst) begin
-            x_val_checked <= 0;
-        end else begin
-            if((prox_RR && prox_RL) == 1) begin
-                if(x_val < 1500) begin
-                    x_val_checked <= 1500;
-                end else begin
-                    x_val_checked <= x_val;
-                end
-            end else begin
-                x_val_checked <= x_val;
-            end
-        end
-    end
-*/
 
 endmodule
 
@@ -85,4 +72,3 @@ endmodule
 //   __/ (  | (  |
 //  /__.-'|_|--|_|
 //
-

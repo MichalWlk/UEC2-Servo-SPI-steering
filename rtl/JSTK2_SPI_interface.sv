@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: pmod JSTK2 communication top module
+// Description: pmod JSTK2 communication structure module (for Y values)
 // 
 // Dependencies: 
 // 
@@ -35,8 +35,7 @@ module JSTK2_SPI_interface(
 
     logic [0:0] zero = 0;
 
-    //assign SCLK = clk_66kHz;
-    assign y_val = {zero, xy_values[25:24], xy_values[39:32]};    //zalezy od orientacji joysticka(teraz: jstk zapiety w bok; normalnie to jest os X)
+    assign y_val = {zero, xy_values[25:24], xy_values[39:32]};    //zalezy od orientacji joysticka
     assign y_bumper = {xy_values[1]};
 
 
@@ -55,6 +54,7 @@ module JSTK2_SPI_interface(
     .rst(rst),
     .clk_div_out(clk_40khz)
     );
+
 
 endmodule
 

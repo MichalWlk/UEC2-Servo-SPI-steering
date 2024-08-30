@@ -26,24 +26,29 @@ module Counter_Y(
     output logic [14:0] cntd_val
     );
 
-    logic [14:0] value;
-    logic [6:0] count100;
+
+    logic [14:0] value = 0;
+    logic [6:0] count100 = 0;
 
     assign cntd_val = value;
+
 
     always @(posedge clk) begin
         if(rst) begin
             value <= 0;
             count100 <= 0;
-        end else begin
+        end 
+        else begin
             if(value == 20000) begin
                 value <= 0;
                 count100 <= 0;
-            end else begin
+            end 
+            else begin
                 if(count100 == 100) begin
                     value <= value + 1;
                     count100 <= 0;
-                end else begin
+                end 
+                else begin
                     count100 <= count100 + 1;
                 end
             end

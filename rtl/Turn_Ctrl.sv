@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Generates PWM signal by cheking if x value (from SPI +1000) is higher or lower than counted value (counts 1000 in 1ms; T = 20ms (50Hz))
+// Description: Generates PWM signal by cheking if y value (from SPI +1000) is higher or lower than counted value (counts 1000 in 1ms; T = 20ms (50Hz))
 // 
 // Dependencies: 
 // 
@@ -28,19 +28,21 @@ module Turn_Ctrl(
     output pwm_turn
     );
 
+
     logic pwm_state;
 
-    //logic [10:0] DEBUG_y_val = 1600;
-
     assign pwm_turn = pwm_state;
+
 
     always @(posedge clk) begin
         if(rst) begin
             pwm_state <= 0;
-        end else begin
-            if(cntr_val < y_val) begin  //bedzie dzialac tylko jesli wychelnie jstk w prawo daje 1000 a w lewo 0
+        end 
+        else begin
+            if(cntr_val < y_val) begin
                 pwm_state <= 1'b1;
-            end else begin
+            end 
+            else begin
                 pwm_state <= 1'b0;
             end
         end

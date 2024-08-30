@@ -5,11 +5,11 @@
 // 
 // Create Date: 08/02/2024 10:03:50 PM          
 // Design Name: 
-// Module Name: JSTK2_SPI_interface
+// Module Name: Backtrack
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Top module for BackTrack(TM) function
+// Description: Structural module for BackTrack(TM) function
 // 
 // Dependencies: 
 // 
@@ -34,13 +34,13 @@ module Backtrack(
 
 
     wire timer_active, CE_5hz;
-
     wire [10:0] x_val_stored, y_val_stored, x_val_op, y_val_op;
 
     assign x_val_out = (timer_active) ? x_val_op : x_val;
     assign y_val_out = (timer_active) ? y_val_op : y_val;
     assign backtrack_active = timer_active;
 
+    
     Timer_5s Timer_5s(
     .clk(clk),
     .rst(rst),

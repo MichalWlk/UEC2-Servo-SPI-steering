@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: pmod JSTK2 communication top module
+// Description: pmod JSTK2 communication structure module (for X values)
 // 
 // Dependencies: 
 // 
@@ -35,8 +35,6 @@ module JSTK_SPI_if_X(
 
     logic [0:0] zero = 0;
 
-    //assign SCLK = clk_66kHz;
-    //assign y_val = {zero, xy_values[25:24], xy_values[39:32]};
     assign x_val = {zero, xy_values[9:8], xy_values[23:16]};
     assign x_bumper = {xy_values[1]};
 
@@ -57,6 +55,7 @@ module JSTK_SPI_if_X(
     .clk_div_out(clk_40kHz)
     );
 
+    
 endmodule
 
 //

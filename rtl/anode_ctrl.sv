@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: Basys3
 // Tool Versions: 
-// Description: Structural module for 7-segment display
+// Description: Ring counter that swithces between 4 different anodes
 // 
 // Dependencies: 
 // 
@@ -27,14 +27,17 @@ module anode_ctrl(
     output logic [3:0] an_sel
     );
     
-   logic [3:0] selected = 4'b1110;
+
+    logic [3:0] selected = 4'b1110;
 
     assign an_sel = selected;
+
 
     always @(posedge clk) begin
         if(rst) begin
             selected <= 4'b1110;
-        end else if(ce == 1) begin
+        end 
+        else if(ce == 1) begin
             selected <= {selected[2:0], selected[3]};
         end
     end

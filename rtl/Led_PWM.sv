@@ -27,15 +27,19 @@ module Led_PWM(
     output logic [15:0] led_pwm
     );
 
+
+    localparam [16:0] CLK_VAL = 100000;
+
     logic [16:0] pwm_cntr = 0;
     logic clk_en = 1;
-    parameter [16:0] CLK_VAL = 100000;
+    
 
     always @(posedge clk) begin
         if(rst) begin
             pwm_cntr <= 0;
             clk_en <= 0;
-        end else begin
+        end 
+        else begin
             pwm_cntr <= pwm_cntr + 1;
             if(pwm_cntr == CLK_VAL) begin
                 pwm_cntr <= 0;
@@ -47,10 +51,12 @@ module Led_PWM(
     always @(posedge clk) begin
         if(rst) begin
             led_pwm <= 0;
-        end else begin
+        end 
+        else begin
             if(clk_en) begin
                 led_pwm <= led_on;
-            end else begin
+            end 
+            else begin
                 led_pwm <= 16'b0;
             end
         end

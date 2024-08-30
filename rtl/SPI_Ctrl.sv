@@ -29,24 +29,24 @@ module SPI_Ctrl(
     output logic SS,
     output [39:0] DOUT
     );
-    
-reg [39:0] SR;
-reg [39:0] SR_temp;
-reg [5:0] BitCntr;
-reg [1:0] State;
-    
-parameter   Init = 2'b00,
-            Receive = 2'b01,
-            Done = 2'b11;
 
+
+    parameter   Init = 2'b00,
+                Receive = 2'b01,
+                Done = 2'b11;
+    
+    logic [39:0] SR;
+    logic [39:0] SR_temp;
+    logic [5:0] BitCntr;
+    logic [1:0] State = Init;
 
     assign SCLK = (SS == 1'b0) ? ce : 1'b0;
+    assign DOUT = SR;
 
 
     always @(negedge clk)
     begin
-        if(rst)
-        begin
+        if(rst) begin
             SS <= 1'b1;
             SR <= 0;
             SR_temp <= 0; 
@@ -68,7 +68,8 @@ parameter   Init = 2'b00,
                     if(BitCntr == 6'd39) begin
                         SS <= 1'b1;
                         State <= Done;               
-                    end else begin
+                    end 
+                    else begin
                         SS <= 1'b0;
                         State <= Receive;
                     end
@@ -82,11 +83,7 @@ parameter   Init = 2'b00,
             endcase
         end
     end
-    
-    
-    assign DOUT = SR;
 
-    //assign SS = SS_Ctrl;
     
 endmodule
 

@@ -28,19 +28,21 @@ module Left_Ctrl(
     output pwm_left
     );
 
+
     logic pwm_state;
 
-    //logic [10:0] DEBUG_x_val = 1520;
-
     assign pwm_left = pwm_state;
+
 
     always @(posedge clk) begin
         if(rst) begin
             pwm_state <= 0;
-        end else begin
+        end 
+        else begin
             if(cntr_val < x_val) begin
                 pwm_state <= 1'b1;
-            end else begin
+            end 
+            else begin
                 pwm_state <= 1'b0;
             end
         end

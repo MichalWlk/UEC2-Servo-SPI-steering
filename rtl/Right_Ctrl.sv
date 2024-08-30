@@ -28,26 +28,30 @@ module Right_Ctrl(
     output pwm_right
     );
 
+
     logic pwm_state;
 
-    //logic [10:0] DEBUG_x_val = 1510;
-
     assign pwm_right = pwm_state;
+
 
     always @(posedge clk) begin
         if(rst) begin
             pwm_state <= 0;
-        end else begin
+        end 
+        else begin
             if(x_val > 1500) begin
                 if(cntr_val < (1500 - (x_val - 1500))) begin
                     pwm_state <= 1'b1;
-                end else begin
+                end 
+                else begin
                     pwm_state <= 1'b0;
                 end
-            end else begin
+            end 
+            else begin
                 if(cntr_val < (1500 + (1500 - x_val))) begin
                     pwm_state <= 1'b1;
-                end else begin
+                end 
+                else begin
                     pwm_state <= 1'b0;
                 end
             end
