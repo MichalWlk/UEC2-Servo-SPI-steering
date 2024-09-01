@@ -42,9 +42,6 @@ set sv_files {
         ../rtl/Steering_X.sv \
         ../rtl/Steering_Y.sv \
         ../rtl/Turn_Ctrl.sv \
-        ../rtl/y_val_limiter.sv \
-        ../rtl/DEBUG_Bin_to_BCD.sv \
-        ../rtl/DEBUG_ssd_ctrl.sv \
         ../rtl/JSTK_SPI_if_X.sv \
         ../rtl/Clk_Div_X.sv \
         ../rtl/SPI_Ctrl_X.sv \
@@ -66,9 +63,9 @@ set sv_files {
 }
 
 # Specify Verilog design files location         -- EDIT
-set verilog_files {
-        rtl/clk_wiz_0_clk_wiz.v
- }
+#set verilog_files {
+#        rtl/clk_wiz_0_clk_wiz.v
+# }
 
 #Specify VHDL design files location            -- EDIT
 
