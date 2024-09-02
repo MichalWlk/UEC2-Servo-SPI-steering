@@ -37,7 +37,7 @@ module Sensor_Ctrl(
             x_val_checked <= 0;
         end 
         else begin
-            if((prox_FR && prox_FL) == 1) begin
+            if((prox_FR || prox_FL) == 1) begin
                 if(x_val > 1500) begin
                     x_val_checked <= 1500;
                 end 
@@ -46,7 +46,7 @@ module Sensor_Ctrl(
                 end
             end 
             else begin
-                if((prox_RR && prox_RL) == 1) begin
+                if((prox_RR || prox_RL) == 1) begin
                     if(x_val < 1500) begin
                         x_val_checked <= 1500;
                     end 
