@@ -32,7 +32,7 @@ module sseg_ctrl(
 
     wire [3:0] an_sel;
     wire [6:0] char_sel;
-    wire CE, backtrack_active;
+    wire CE;
 
     
     clk_div_1k clk_dic_1k(

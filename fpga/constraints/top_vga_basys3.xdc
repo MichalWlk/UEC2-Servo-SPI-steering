@@ -14,8 +14,8 @@ set_input_jitter [get_clocks -of_objects [get_ports clk]] 0.100
 #set_false_path -to [get_cells  -hier {*seq_reg*[0]} -filter {is_sequential}]
 #set_property PHASESHIFT_MODE WAVEFORM [get_cells -hierarchical *adv*]
 ## Switches
-set_property PACKAGE_PIN V17 [get_ports {sw[0]}]
-	set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
+#set_property PACKAGE_PIN V17 [get_ports {sw[0]}]
+	#set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
 #set_property PACKAGE_PIN V16 [get_ports {sw[1]}]
 	#set_property IOSTANDARD LVCMOS33 [get_ports {sw[1]}]
 #set_property PACKAGE_PIN W16 [get_ports {sw[2]}]
