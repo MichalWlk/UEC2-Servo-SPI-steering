@@ -10,3 +10,4 @@ xsim.dir
 /fpga/.Xil
 /.Xil
 .dvt
+/sim/common/glbl.v
