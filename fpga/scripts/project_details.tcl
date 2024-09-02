@@ -16,7 +16,7 @@
 set project_name SPI_Steering
 
 # Top module name                               -- EDIT
-set top_module SPI_Steering_top.sv
+set top_module SPI_Steering_top
 
 # FPGA device
 set target xc7a35tcpg236-1
